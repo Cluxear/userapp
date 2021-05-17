@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Candidate.
+    -->
+    <changeSet id="20210312235339-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="id"
+                                 baseTableName="candidate"
+                                 constraintName="fk_candidate_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="address_id"
+                                 baseTableName="candidate"
+                                 constraintName="fk_candidate_address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"/>
+
+        <addForeignKeyConstraint baseColumnNames="degree_id"
+                                 baseTableName="candidate"
+                                 constraintName="fk_candidate_degree_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="degree_level"/>
+
+        <addForeignKeyConstraint baseColumnNames="experience_duration_id"
+                                 baseTableName="candidate"
+                                 constraintName="fk_candidate_exp_duration_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="experience_duration"/>
+
+        <addForeignKeyConstraint baseColumnNames="seniority_level_id"
+                                 baseTableName="candidate"
+                                 constraintName="fk_candidate_seniority_level_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="seniority_level"/>
+
+		<addForeignKeyConstraint baseColumnNames="country_id"
+                                 baseTableName="candidate"
+                                 constraintName="fk_candidate_country_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="country"/>
+    </changeSet>
+</databaseChangeLog>

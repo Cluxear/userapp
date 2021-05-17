@@ -1,0 +1,58 @@
+{
+  "name": "Employee",
+  "fields": [
+    {
+      "fieldName": "salary",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "user",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "position",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "position",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "degreeLevel",
+      "otherEntityRelationshipName": "employe",
+      "relationshipName": "degree",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "seniorityLevel",
+      "otherEntityRelationshipName": "employe",
+      "relationshipName": "seniorityLevel",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210312235439",
+  "entityTableName": "employee",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "userapp",
+  "applications": "*",
+  "microserviceName": "userapp"
+}

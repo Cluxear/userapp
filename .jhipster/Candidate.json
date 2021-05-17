@@ -1,0 +1,84 @@
+{
+  "name": "Candidate",
+  "fields": [
+    {
+      "fieldName": "personalStatement",
+      "fieldType": "String",
+      "javadoc": "The firstname attribute."
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "candidate",
+      "relationshipName": "user",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "candidate",
+      "relationshipName": "address",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "professionalExperience",
+      "otherEntityRelationshipName": "candidate",
+      "relationshipName": "professionalExperience"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "academicExperience",
+      "otherEntityRelationshipName": "candidate",
+      "relationshipName": "academicExperience"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "certification",
+      "otherEntityRelationshipName": "candidate",
+      "relationshipName": "certifications"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "candidate",
+      "relationshipName": "country"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "degreeLevel",
+      "otherEntityRelationshipName": "candidate",
+      "relationshipName": "degree",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "seniorityLevel",
+      "otherEntityRelationshipName": "candidate",
+      "relationshipName": "seniorityLevel",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210312235339",
+  "javadoc": "The Candidate entity.",
+  "entityTableName": "candidate",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "userapp",
+  "applications": "*",
+  "microserviceName": "userapp"
+}

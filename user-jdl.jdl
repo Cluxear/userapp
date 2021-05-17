@@ -1,0 +1,113 @@
+
+
+
+
+
+
+/**
+ * The Candidate entity.
+ */
+entity Candidate {
+	/**
+	* The firstname attribute.
+	*/
+    personalStatement String,
+    phone Long
+    
+}
+
+entity Employee { 
+   salary Double,
+   phone Long
+}
+entity AcademicExperience {
+	
+	place String required minlength(3),
+    degreeName String required minlength(3),
+    description String,
+    startDate Instant,
+    endDate Instant
+}
+entity ProfessionalExperience {
+	
+	place String required minlength(3),
+    post String required minlength(3),
+    description String,
+    startDate Instant,
+    endDate Instant
+}
+entity Certification {
+	title String required minlength(3),
+    description String
+}
+entity Address {
+	street String,
+    postalCode Integer,
+    city String,
+    state String
+}
+entity Country {
+	name String
+}
+
+entity Position {
+    jobTitle String required minlength(3),
+	minSalary Long required ,
+	maxSalary Long required 
+}
+entity DegreeLevel {
+	name String required minlength(3)
+}
+entity SeniorityLevel {
+	name String required minlength(3)
+}
+relationship OneToOne { 
+    Candidate{user} to User with jpaDerivedIdentifier 
+}
+relationship OneToOne { 
+    Employee{user} to User with jpaDerivedIdentifier 
+}
+relationship OneToMany { 
+    DegreeLevel{candidate} to Candidate{degree}
+}
+relationship OneToMany { 
+    DegreeLevel{employe} to Employee{degree}
+}
+relationship OneToMany {
+	SeniorityLevel{employe} to Employee{seniorityLevel}
+}
+relationship OneToMany {
+	SeniorityLevel{candidate} to Candidate{seniorityLevel}
+}
+relationship OneToMany {
+   Candidate{professionalExperience} to ProfessionalExperience{candidate}
+}
+relationship OneToMany {
+   Candidate{academicExperience} to AcademicExperience{candidate}
+}
+relationship OneToMany {
+   Candidate{certifications} to Certification{candidate}
+}
+relationship OneToOne {
+    Candidate{address} to Address
+}
+relationship OneToMany {
+	Candidate{country} to Country{candidate}
+}
+
+relationship OneToOne {
+	Employee{position} to Position
+}
+paginate  Employee, Candidate, Position with infinite-scroll
+
+
+// Use Data Transfer Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+
+
+
+

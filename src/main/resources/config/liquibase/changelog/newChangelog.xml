@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd">
+
+<changeSet author="liquibase-docs" id="addColumnToCandidate-Code">
+    <addColumn catalogName="userdb"
+               schemaName= "userdb"
+               tableName="candidate" >
+
+        <column afterColumn="id"
+                name="code"
+                type="varchar(255)" >
+            <constraints nullable="false" />
+        </column>
+    </addColumn>
+</changeSet>
+    <changeSet author="liquibase-docs" id="addColumnToEmployee-Code">
+        <addColumn catalogName="userdb"
+                   schemaName= "userdb"
+                   tableName="employee">
+
+            <column afterColumn="id"
+                    name="code"
+                    type="varchar(255)" >
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,50 @@
+{
+  "name": "ProfessionalExperience",
+  "fields": [
+    {
+      "fieldName": "place",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "3"
+    },
+    {
+      "fieldName": "post",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "3"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "candidate",
+      "otherEntityRelationshipName": "professionalExperience",
+      "relationshipName": "candidate",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210312235639",
+  "entityTableName": "professional_experience",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "userapp",
+  "applications": "*",
+  "microserviceName": "userapp"
+}

@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.tw.userapp",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "microservice",
+    "baseName": "userapp",
+    "packageName": "com.tw.userapp",
+    "packageFolder": "com/tw/userapp",
+    "serverPort": "8081",
+    "authenticationType": "oauth2",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YmMxYzY0MzQ5OWU1OTJlMzczYTQ4NWU2Yzc5ZDNjYmM0NDJmMzcyNjM4MTBkZGE1Y2M5MWEyNWM1OWFjNGY3MDNmMThiNzZkOTEzZTU5YTI5OGYyMmNhNGY2OGY0OTJiMjcxNzgwMjg4ODBmY2FmYjgxNzNjOTBhZGM0ZjUzYjk=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1615492599236,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "fr",
+    "languages": ["fr", "en"],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
