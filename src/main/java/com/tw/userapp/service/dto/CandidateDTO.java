@@ -1,7 +1,6 @@
 package com.tw.userapp.service.dto;
 
 import com.tw.userapp.service.models.Skill;
-import com.tw.userapp.service.models.Skills;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
@@ -44,7 +43,11 @@ public class CandidateDTO implements Serializable {
 
     private List<Long> skillId;
 
-    private int yearsOfExperience;
+    private long experienceDurationId;
+
+    private String experienceDurationName;
+
+
 
     private long degreeId;
 
@@ -52,6 +55,18 @@ public class CandidateDTO implements Serializable {
 
     public CandidateDTO() {
 
+    }
+
+    public void setExperienceDurationId(long experienceDurationId) {
+        this.experienceDurationId = experienceDurationId;
+    }
+
+    public String getExperienceDurationName() {
+        return experienceDurationName;
+    }
+
+    public void setExperienceDurationName(String experienceDurationName) {
+        this.experienceDurationName = experienceDurationName;
     }
 
     public List<AcademicExperienceDTO> getAcademicExperience() {
@@ -86,13 +101,10 @@ public class CandidateDTO implements Serializable {
         this.degreeId = degreeId;
     }
 
-    public int getYearsOfExperience() {
-        return yearsOfExperience;
+    public long getExperienceDurationId() {
+        return experienceDurationId;
     }
 
-    public void setYearsOfExperience(int yearsOfExperience) {
-        this.yearsOfExperience = yearsOfExperience;
-    }
 
     public List<Long> getSkillId() {
         return skillId;
@@ -192,7 +204,8 @@ public class CandidateDTO implements Serializable {
         String result = "CandidateDTO{" +
             ", id='"+ getId() + "'" +
             ", personalStatement='" + getPersonalStatement() + "'" +
-            ", phone=" + getPhone();
+            ", phone=" + getPhone()+
+            ",Experience Duration" + getExperienceDurationName();
         if(address != null)
             result += address.toString();
         if(skills != null) {

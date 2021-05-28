@@ -24,6 +24,9 @@ import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.admin.client.resource.UsersResource;
+import org.keycloak.authorization.client.AuthzClient;
+import org.keycloak.authorization.client.Configuration;
+import org.keycloak.representations.AccessTokenResponse;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
@@ -50,7 +53,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * REST controller for managing users.
@@ -292,6 +297,22 @@ public class UserResource {
         }
         return ResponseEntity.ok(userDTO);
 
+    }
+    @PostMapping(path = "/signin")
+    public ResponseEntity<?> signin(@RequestBody  ManagedUserVM userDTO) {
+
+        Map<String, Object> clientCredentials = new HashMap<>();
+        clientCredentials.put("secret", "671a12a0-7fc3-4d28-bd5b-395cc2fbba0d");
+        clientCredentials.put("grant_type", "password");
+
+        Configuration configuration =
+            new Configuration(env.getProperty("keycloak.auth-server-url"), "jhipster", "user_app", clientCredentials, null);
+        AuthzClient authzClient = AuthzClient.create(configuration);
+
+        AccessTokenResponse response =
+            authzClient.obtainAccessToken(userDTO.getLogin(), userDTO.getPassword());
+
+        return ResponseEntity.ok(response);
     }
     public static File convert(MultipartFile file)
     {

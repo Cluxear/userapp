@@ -1,0 +1,28 @@
+{
+  "name": "ExperienceDuration",
+  "fields": [
+    {
+      "fieldName": "value",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "candidate",
+      "otherEntityRelationshipName": "experienceDuration",
+      "relationshipName": "candidate",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210312235939",
+  "entityTableName": "experience_duration",
+  "pagination": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "userapp",
+  "applications": "*",
+  "microserviceName": "userapp"
+}

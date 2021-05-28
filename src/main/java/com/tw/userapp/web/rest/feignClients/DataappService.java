@@ -20,4 +20,6 @@ public interface DataappService {
 
     @RequestMapping (value = "/user-skills/", method = RequestMethod.PUT)
     ResponseEntity<UserSkillDTO> updateUserSkill(@RequestBody UserSkillDTO userSkillDTO);
+
+
 }

@@ -28,6 +28,7 @@
     <include file="config/liquibase/changelog/20210312235339_added_entity_constraints_Candidate.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210312235439_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210312235539_added_entity_constraints_AcademicExperience.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210312235339_added_entity_exp_duration.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210312235639_added_entity_constraints_ProfessionalExperience.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210312235739_added_entity_constraints_Certification.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/newChangelog.xml" relativeToChangelogFile="false"/>

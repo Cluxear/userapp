@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Mapper for the entity {@link Candidate} and its DTO {@link CandidateDTO}.
  */
-@Mapper(componentModel = "spring", uses = {UserMapper.class, DegreeLevelMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class, DegreeLevelMapper.class, ExperienceDurationMapper.class})
 public interface CandidateMapper extends EntityMapper<CandidateDTO, Candidate> {
 
 
@@ -23,6 +23,8 @@ public interface CandidateMapper extends EntityMapper<CandidateDTO, Candidate> {
     @Mapping(source ="user.login", target="login")
     @Mapping(source ="user.id", target="id")
     @Mapping(source ="degree.id", target="degreeId")
+    @Mapping(source ="experienceDuration.id", target="experienceDurationId")
+    @Mapping(source ="experienceDuration.value", target="experienceDurationName")
     @Mapping(source ="degree.name", target="degreeName")
     CandidateDTO toDto(Candidate candidate);
 
@@ -31,6 +33,7 @@ public interface CandidateMapper extends EntityMapper<CandidateDTO, Candidate> {
     @Mapping(source ="lastName", target="user.lastName")
     @Mapping(source ="email", target="user.email")
     @Mapping(source ="degreeId", target="degree")
+    @Mapping(source="experienceDurationId", target = "experienceDuration")
     Candidate toEntity(CandidateDTO candidateDTO);
 
     default Candidate fromId(String id) {
